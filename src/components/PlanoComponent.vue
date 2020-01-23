@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="250">
+  <v-card class="mx-auto" max-width="250" height="455">
     <v-img
       class="white--text align-end ma-4"
       height="130px"
@@ -7,8 +7,8 @@
     ></v-img>
     <v-divider></v-divider>
 
-    <v-card-title class="light-blue--text accent-4">ConferênciaWeb</v-card-title>
-    <v-card-subtitle class="pb-0">Rede social de video-conferencias.</v-card-subtitle>
+    <v-card-title class="light-blue--text accent-4">{{ titulo }}</v-card-title>
+    <v-card-subtitle class="pb-0">{{ subtitulo }}</v-card-subtitle>
     <v-list dense>
       <v-list-item-group color="primary">
         <v-list-item v-for="(item, i) in items" :key="i">
@@ -16,7 +16,7 @@
             <v-icon v-text="item.icon" color="success"></v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="item.text" class="success--text"></v-list-item-title>
+            <v-list-item-title v-bind:style="item.style" v-text="item.text" class="font-weight-light"></v-list-item-title>
             <div class="font-weight-bold caption ml-1 light-blue--text accent-4">{{ item.subtext }}</div>
           </v-list-item-content>
         </v-list-item>
@@ -34,25 +34,12 @@
 <script>
 export default {
   name: "PlanoComponent",
-
+  props: {
+    titulo: { type: Object },
+    subtitulo: { type: Object },
+    items: { type: Object }
+  },
   data: () => ({
-    items: [
-      {
-        text: "serviço online",
-        icon: "mdi-checkbox-marked-circle",
-        subtext: ""
-      },
-      {
-        text: "assinatura ativa",
-        icon: "mdi-checkbox-marked-circle",
-        subtext: "Gerenciar Assinatura"
-      },
-      {
-        text: "solicitações abertas",
-        icon: "4",
-        subtext: "Gerenciar Assinatura"
-      }
-    ]
   })
 };
 </script>
