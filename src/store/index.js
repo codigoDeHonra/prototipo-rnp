@@ -6,10 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     catalogo: {
-      planos: [
+      saas_utilidades_gerais: [
         {
           titulo: 'ConferênciaWeb',
           subtitulo: 'Rede social de video-conferências.',
+          status: true,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
@@ -28,6 +29,7 @@ export default new Vuex.Store({
         {
           titulo: 'EduDrive',
           subtitulo: 'Armazenamento na nuvem, com app mobile.',
+          status: false,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
@@ -46,6 +48,7 @@ export default new Vuex.Store({
         {
           titulo: 'FileSender',
           subtitulo: 'Envio seguro de arquivos grandes, até 20Gb.',
+          status: false,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
@@ -64,6 +67,7 @@ export default new Vuex.Store({
         {
           titulo: 'Períodico Capes',
           subtitulo: 'Maior base de periódicos científicos do Brasil.',
+          status: false,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
@@ -82,6 +86,7 @@ export default new Vuex.Store({
         {
           titulo: 'Solidariedade',
           subtitulo: 'Compartilhamento de recursos de pesquisa.',
+          status: false,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
@@ -100,6 +105,7 @@ export default new Vuex.Store({
         {
           titulo: 'Video@RNP',
           subtitulo: 'Videoteca de ensino, pesquisa, saúde e cultura.',
+          status: false,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
@@ -118,6 +124,7 @@ export default new Vuex.Store({
         {
           titulo: 'Videoaula@RNP',
           subtitulo: 'Repositório de aulas em vídeo sob demanda.',
+          status: false,
           items: [
             {
               text: "serviço online", icon: "mdi-checkbox-marked-circle",
