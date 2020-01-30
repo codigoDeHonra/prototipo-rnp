@@ -7,7 +7,7 @@
         >SaaS - Redes Colaborativas</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col v-for="ferramenta in 3" :key="ferramenta" cols="12" sm="3">
+        <v-col v-for="ferramenta in 8" :key="ferramenta" cols="12" sm="3">
           <PlanoComponent
             :titulo="saas_redes_colaborativas.titulo"
             :subtitulo="saas_redes_colaborativas.subtitulo"
