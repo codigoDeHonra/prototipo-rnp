@@ -1,10 +1,14 @@
 <template>
-  <div class="grey lighten-4">
-    <SaasUtilidadesGerais></SaasUtilidadesGerais>
-    <SaasFerramentasCientificas></SaasFerramentasCientificas>
-    <SaasRedesColaborativas></SaasRedesColaborativas>
-    <IaasInfraestruturaGerenciada></IaasInfraestruturaGerenciada>
-  </div>
+  <v-container class="grey lighten-4" fluid>
+    <v-row>
+      <v-col>
+        <SaasUtilidadesGerais></SaasUtilidadesGerais>
+        <SaasFerramentasCientificas></SaasFerramentasCientificas>
+        <SaasRedesColaborativas></SaasRedesColaborativas>
+        <IaasInfraestruturaGerenciada></IaasInfraestruturaGerenciada>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -12,7 +16,6 @@ import SaasUtilidadesGerais from "../../components/catalogo/SaasUtilidadesGerais
 import SaasFerramentasCientificas from "../../components/catalogo/SaasFerramentasCientificas.vue";
 import SaasRedesColaborativas from "../../components/catalogo/SaasRedesColaborativas.vue";
 import IaasInfraestruturaGerenciada from "../../components/catalogo/IaasInfraestruturaGerenciada.vue";
-
 
 export default {
   name: "CatalogoHome",
@@ -22,7 +25,6 @@ export default {
     SaasRedesColaborativas: SaasRedesColaborativas,
     IaasInfraestruturaGerenciada: IaasInfraestruturaGerenciada
   },
-  data: () => ({
-  })
+  data: () => ({})
 };
 </script>
