@@ -6,7 +6,6 @@ import Carrinho from '../components/catalogo/Carrinho.vue'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: 'history',
   routes: [
     {
       path: '/catalogo',
