@@ -1,5 +1,71 @@
 <template>
-  <v-container class="grey lighten-4" fluid>
+  <v-container class="grey lighten-4 pa-0" fluid>
+        <v-row 
+            :style="back"
+        >
+          <v-col cols="12"  class="pa-0" >
+              <v-container class="pa-0">
+                <v-row>
+                  <v-col class="d-flex" cols="12">
+                      <img class="mx-auto" src="@/assets/logo_white_nasnuvens.png">
+                  </v-col>
+                  <v-col class="d-flex" >
+                      <h1 class="title white--text mx-auto">Serviços em nuvem para ensino, pesquisa e inovação.</h1>
+                  </v-col>
+                </v-row>
+              </v-container>
+
+                <v-row class="btn-back">
+              <v-container class="pa-0">
+                  <v-col cols="12" class="d-flex " >
+                      <v-btn-toggle
+                              v-model="text"
+                              tile
+                              color="deep-purple accent-3"
+                              group
+                              class="mx-auto"
+                            >
+                             <v-btn text
+                                    color="white"
+                                 >
+                                todos os serviços
+                             </v-btn>
+                             <v-btn 
+                                text
+                                color="#00ccf8"
+                             >
+                               utilidade gerais 
+                             </v-btn>
+                             <v-btn 
+                                 color="#00ccf8"
+                                 text>
+                               ferraments cientificas 
+                             </v-btn>
+                             <v-btn 
+                                 color="#00ccf8"
+                                 text>
+                               redes colaborativas 
+                             </v-btn>
+                             <v-btn 
+                                 color="#00ccf8"
+                                 text>
+                               infraestrutura TI 
+                             </v-btn>
+                      </v-btn-toggle>
+                  </v-col>
+                  <v-col cols="12" class="" >
+                      <v-text-field
+                        solo 
+                        full-width
+                        single-line
+                        placeholder="Pesquisar todos os serviços nas nuvens"
+                        prepend-inner-icon="mdi-magnify"
+                      />
+                  </v-col>
+              </v-container>
+                </v-row>
+          </v-col>
+        </v-row>
     <v-row>
       <v-col>
         <SaasUtilidadesGerais></SaasUtilidadesGerais>
@@ -19,12 +85,37 @@ import IaasInfraestruturaGerenciada from "../../components/catalogo/IaasInfraest
 
 export default {
   name: "CatalogoHome",
+    data(){
+        return {
+            back:{ 
+                backgroundImage: 'url(' + require('@/assets/background_catalog.jpg') + ')',
+                backgroundPosition: 'center center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'scroll',
+                backgroundSize: 'cover',
+            }
+        }
+    },
   components: {
     SaasUtilidadesGerais: SaasUtilidadesGerais,
     SaasFerramentasCientificas: SaasFerramentasCientificas,
     SaasRedesColaborativas: SaasRedesColaborativas,
     IaasInfraestruturaGerenciada: IaasInfraestruturaGerenciada
   },
-  data: () => ({})
 };
 </script>
+<style scoped>
+#app .btn-back{
+    background-color: rgba(0, 0, 0, 0.43);
+    color: #00ccf8;
+}
+#app h1.title {
+    padding-bottom: 30px;
+    font-family: 'Roboto Light', 'Roboto' !important;
+    font-weight: 350;
+	font-style: normal;
+	font-size: 24px !important;
+	color: #FFFFFF !important;
+	text-align: center;
+} 
+</style>

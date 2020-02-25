@@ -16,7 +16,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-stepper non-linear class="transparent">
+    <!--v-stepper non-linear class="transparent">
       <v-stepper-header>
         <v-divider></v-divider>
 
@@ -26,7 +26,7 @@
         </v-stepper-step>
         <v-divider></v-divider>
       </v-stepper-header>
-    </v-stepper>
+    </v-stepper-->
   </div>
 </template>
 

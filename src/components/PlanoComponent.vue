@@ -11,7 +11,8 @@
 
     <v-card-title class="light-blue--text accent-4">{{ titulo }}</v-card-title>
     <v-card-subtitle class="pb-0">{{ subtitulo }}</v-card-subtitle>
-    <v-list dense>
+
+    <!--v-list dense>
       <v-list-item-group color="primary">
         <v-list-item v-for="(item, i) in items" :key="i">
           <v-list-item-icon>
@@ -27,14 +28,14 @@
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
-    </v-list>
+    </v-list-->
 
-    <v-card-actions>
+    <!--v-card-actions>
       <v-spacer></v-spacer>
       <v-btn v-if="status_plano" color="white" class="text-uppercase green" text>acessar serviço</v-btn>
       <v-btn v-else color="white" class="text-uppercase light-blue" text>Obter seu acesso</v-btn>
       <v-spacer></v-spacer>
-    </v-card-actions>
+    </v-card-actions-->
   </v-card>
 </template>
 

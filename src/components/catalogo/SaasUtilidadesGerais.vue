@@ -6,7 +6,7 @@
           class="font-weight-thin align-center blue-grey--text darken-2 text-center"
         >SaaS - Utilidades Gerais</h1>
       </v-col>
-      <v-row no-gutters justify="center">
+      <v-row no-gutters align="center" justify="center">
         <v-col v-for="plano in saas_utilidades_gerais" :key="plano" cols="3">
           <PlanoComponent
             :titulo="plano.titulo"
@@ -18,7 +18,7 @@
       </v-row>
     </v-container>
 
-    <v-stepper non-linear class="transparent">
+    <!--v-stepper non-linear class="transparent">
       <v-stepper-header>
         <v-divider></v-divider>
 
@@ -28,7 +28,7 @@
         </v-stepper-step>
         <v-divider></v-divider>
       </v-stepper-header>
-    </v-stepper>
+    </v-stepper-->
   </div>
 </template>
 
