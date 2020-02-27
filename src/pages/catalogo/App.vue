@@ -41,6 +41,9 @@
 export default {
   name: "App",
   components: {},
-  data: () => ({})
+  data: () => ({}),
+  mounted() {
+        console.log(process.env.VUE_APP_IMAGE_PATH);
+  }
 };
 </script>

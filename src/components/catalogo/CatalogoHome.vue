@@ -7,7 +7,10 @@
               <v-container class="pa-0">
                 <v-row>
                   <v-col class="d-flex" cols="12">
-                      <img class="mx-auto" src="@/assets/logo_white_nasnuvens.png">
+                      <img 
+                          class="mx-auto" 
+                          :src="logo"
+                      >
                   </v-col>
                   <v-col class="d-flex" >
                       <h1 class="title white--text mx-auto">Serviços em nuvem para ensino, pesquisa e inovação.</h1>
@@ -88,12 +91,13 @@ export default {
     data(){
         return {
             back:{ 
-                backgroundImage: 'url(' + require('@/assets/background_catalog.jpg') + ')',
+                backgroundImage: 'url(' + require(`${process.env.VUE_APP_IMAGE_PATH}background_catalog.jpg`) + ')',
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'scroll',
                 backgroundSize: 'cover',
-            }
+            },
+            logo: require(`${process.env.VUE_APP_IMAGE_PATH}logo_white_nasnuvens.png`),
         }
     },
   components: {

@@ -4,7 +4,7 @@
       <v-img
         class="white--text align-end"
         height="120px"
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        :src="img"
       ></v-img>
     </div>
     <v-divider></v-divider>
@@ -47,6 +47,7 @@ export default {
     subtitulo: { type: Object },
     items: { type: Object },
     status_plano: { type: Boolean, default: false },
+    img: { type: String, default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg' },
   },
   data: () => ({})
 };
