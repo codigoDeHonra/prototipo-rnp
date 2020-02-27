@@ -1,4 +1,7 @@
+const path = require("path");
+
 module.exports = {
+  outputDir: path.resolve(__dirname, "../../../sites/default/files/dist/"),
     chainWebpack: config => {
         if(config.plugins.has('extract-css')) {
             const extractCSSPlugin = config.plugin('extract-css')
@@ -48,5 +51,5 @@ module.exports = {
         // and falls back to `public/index.html` if not found.
         // Output filename is inferred to be `subpage.html`.
         // subpage: 'src/subpage/main.js'
-    } 
+    }
 }
