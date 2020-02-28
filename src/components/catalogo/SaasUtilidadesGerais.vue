@@ -6,13 +6,19 @@
           class="font-weight-thin align-center blue-grey--text darken-2 text-center"
         >SaaS - Utilidades Gerais</h1>
       </v-col>
-      <v-row no-gutters align="center" justify="center">
-        <v-col v-for="plano in saas_utilidades_gerais" :key="plano" cols="3">
+      <v-row
+        v-if="items.length"
+        no-gutters align="center" justify="center">
+        <v-col
+          v-for="(plano, index) in items"
+          :key="index"
+          cols="3">
           <PlanoComponent
-            :titulo="plano.titulo"
-            :subtitulo="plano.subtitulo"
+            :titulo="plano.node.title"
+            :subtitulo="plano.node.Body"
             :items="plano.items"
             :status_plano="plano.status"
+            :img="plano.node.Logo.src"
           ></PlanoComponent>
         </v-col>
       </v-row>
@@ -40,6 +46,7 @@ export default {
   components: {
     PlanoComponent: PlanoComponent
   },
+  props:[ 'items' ],
   computed: {
     saas_utilidades_gerais() {
       return this.$store.state.catalogo.saas_utilidades_gerais;

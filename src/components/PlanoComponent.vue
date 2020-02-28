@@ -43,9 +43,9 @@
 export default {
   name: "PlanoComponent",
   props: {
-    titulo: { type: Object },
-    subtitulo: { type: Object },
-    items: { type: Object },
+    titulo: { type: String, default: '' },
+    subtitulo: { type: String, default: '' },
+    items: { type: [Object, Array] },
     status_plano: { type: Boolean, default: false },
     img: { type: String, default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg' },
   },

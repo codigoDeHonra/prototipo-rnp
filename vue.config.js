@@ -1,7 +1,8 @@
 const path = require("path");
 
 module.exports = {
-  outputDir: path.resolve(__dirname, "../../../sites/default/files/dist/"),
+  // outputDir: path.resolve(__dirname, "../../../sites/default/files/dist/"),
+    outputDir: path.resolve(__dirname, "../../../sites/all/modules/custom/teste/dist/"),
     chainWebpack: config => {
         if(config.plugins.has('extract-css')) {
             const extractCSSPlugin = config.plugin('extract-css')

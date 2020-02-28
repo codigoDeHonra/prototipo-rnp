@@ -7,11 +7,12 @@
         >SaaS - Redes Colaborativas</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col v-for="ferramenta in 8" :key="ferramenta" cols="12" sm="3">
+        <v-col v-for="(ferramenta, index) in items" :key="index" cols="12" sm="3">
           <PlanoComponent
-            :titulo="saas_redes_colaborativas.titulo"
-            :subtitulo="saas_redes_colaborativas.subtitulo"
+            :titulo="ferramenta.node.title"
+            :subtitulo="ferramenta.node.Body"
             :items="saas_redes_colaborativas.items"
+            :img="ferramenta.node.Logo.src"
           ></PlanoComponent>
         </v-col>
       </v-row>
@@ -52,6 +53,7 @@ export default {
         }
       ]
     }
-  })
+  }),
+  props:[ 'items' ],
 };
 </script>
