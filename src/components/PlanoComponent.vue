@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="250" max-height="460">
+  <v-card class="mx-auto card-plano" width="225" max-height="460">
     <div class="white--text align-end pt-4 ma-4">
       <v-img
         class="white--text align-end"
@@ -12,10 +12,10 @@
     <v-card-title class="light-blue--text accent-4">{{ titulo }}</v-card-title>
     <v-card-subtitle class="pb-0">{{ subtitulo }}</v-card-subtitle>
     <v-list dense>
-      <v-list-item-group color="primary">
-        <v-list-item v-for="(item, i) in items" :key="i">
-          <v-list-item-icon>
-            <v-icon v-text="item.icon" color="success"></v-icon>
+      <v-list-item-group color="primary" class="group-item-plano">
+        <v-list-item v-for="(item, i) in items" :key="i" class="items-plano">
+          <v-list-item-icon class="item-plano">
+            <v-icon v-text="item.icon" color="success" class="icone-plano"></v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title
@@ -23,7 +23,10 @@
               v-text="item.text"
               class="font-weight-light"
             ></v-list-item-title>
-            <div class="font-weight-bold caption ml-1 light-blue--text accent-4">{{ item.subtext }}</div>
+            <div v-if="item.subtext" class="font-weight-bold caption light-blue--text accent-4">{{ item.subtext }}</div>
+            <div v-else>
+              
+            </div>
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
@@ -50,3 +53,23 @@ export default {
   data: () => ({})
 };
 </script>
+
+<style scoped>
+  .item-plano {
+    margin-right: 2px !important;
+  }
+  .icone-plano {
+    font-size: 20px !important;
+  }
+  .card-plano {
+    min-height: 360px;
+    /* height: 430px; */
+  }
+  .items-plano {
+    margin-top: -10px;
+    height: 50px;
+  }
+  .group-items-plano {
+    height: 128px;
+  }
+</style>

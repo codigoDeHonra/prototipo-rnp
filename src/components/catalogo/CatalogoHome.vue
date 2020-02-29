@@ -28,3 +28,12 @@ export default {
   data: () => ({})
 };
 </script>
+<style>
+.servicos-nao-assinados {
+  background: transparent !important;
+  color: #424141 !important;
+  font-size: 18px !important;
+  margin-bottom: 12px !important;
+  margin-right: 0px !important;
+}
+</style>
