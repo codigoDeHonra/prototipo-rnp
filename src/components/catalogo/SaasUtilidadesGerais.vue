@@ -7,7 +7,7 @@
         >SaaS - Utilidades Gerais</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col cols="7">
+        <v-col cols="9">
           <v-row justify="center">
             <v-col v-for="plano in saas_utilidades_gerais" :key="plano" cols="3" align-self="center">
               <PlanoComponent
