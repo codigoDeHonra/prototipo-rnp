@@ -34,18 +34,18 @@ module.exports = {
             chunks: ['chunk-vendors', 'chunk-common', 'catalogo']
         },
         details: {
-            // entry for the page
             entry: 'src/pages/details/main.js',
-            // the source template
             template: 'public/details.html',
-            // output as dist/index.html
             filename: 'details.html',
-            // when using title option,
-            // template title tag needs to be <title><%= htmlWebpackPlugin.options.title %></title>
             title: 'Detalhes',
-            // chunks to include on this page, by default includes
-            // extracted common chunks and vendor chunks.
             chunks: ['chunk-vendors', 'chunk-common', 'details']
+        },
+        cubo: {
+            entry: 'src/pages/cubo/main.js',
+            template: 'public/cubo.html',
+            filename: 'cubo.html',
+            title: 'cubo',
+            chunks: ['chunk-vendors', 'chunk-common', 'cubo']
         },
         // when using the entry-only string format,
         // template is inferred to be `public/subpage.html`
