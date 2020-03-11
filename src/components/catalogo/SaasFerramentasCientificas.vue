@@ -6,7 +6,7 @@
           class="font-weight-thin align-center blue-grey--text darken-2 text-center"
         >SaaS - Ferramentas Científicas</h1>
       </v-col>
-      <v-row no-gutters justify="center">
+      <v-row style="width: 100%" no-gutters justify="center">
         <v-col
           v-for="(ferramenta, index) in items"
           :key="index"

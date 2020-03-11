@@ -1,16 +1,22 @@
 <template>
-  <v-card class="mx-auto" max-width="250" max-height="460">
+  <v-card
+    class="mx-auto"
+    max-width="231"
+    max-height="237"
+    min-width="231"
+    min-height="237"
+  >
     <div class="white--text align-end pt-4 ma-4">
       <v-img
         class="white--text align-end"
-        height="120px"
+        height="53px"
         :src="img"
       ></v-img>
     </div>
     <v-divider></v-divider>
 
     <v-card-title class="light-blue--text accent-4">{{ titulo }}</v-card-title>
-    <v-card-subtitle class="pb-0">{{ subtitulo }}</v-card-subtitle>
+    <v-card-subtitle class="text-card pb-0">{{ subtitulo }}</v-card-subtitle>
 
     <!--v-list dense>
       <v-list-item-group color="primary">
@@ -52,3 +58,9 @@ export default {
   data: () => ({})
 };
 </script>
+<style scoped>
+#app .text-card {
+  overflow: hidden;
+  max-height: 44px;
+}
+</style>

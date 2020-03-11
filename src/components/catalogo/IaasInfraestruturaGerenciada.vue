@@ -6,7 +6,7 @@
           class="font-weight-light align-center white--text text-center"
         >IaaS - Infraestrutura gerenciada</h1>
       </v-col>
-      <v-row no-gutters justify="center">
+      <v-row style="width: 100%" no-gutters justify="center">
         <v-col v-for="(ferramenta, index) in items" :key="index" cols="12" sm="3">
           <PlanoComponent
             :titulo="iaas_infraestrutura_gerenciada.titulo"

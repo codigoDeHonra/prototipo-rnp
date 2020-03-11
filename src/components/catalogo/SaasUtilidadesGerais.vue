@@ -8,7 +8,11 @@
       </v-col>
       <v-row
         v-if="items.length"
-        no-gutters align="center" justify="center">
+        no-gutters
+        align="center"
+        justify="center"
+        style="width: 100%"
+      >
         <v-col
           v-for="(plano, index) in items"
           :key="index"
