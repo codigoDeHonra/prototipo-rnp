@@ -84,15 +84,15 @@
         />
         <SaasFerramentasCientificas
           v-if="filterTab==='all' || filterTab==='tools'"
-          :items="catalog"
+          :items="catalogFiltered"
         />
         <SaasRedesColaborativas
           v-if="filterTab==='all' || filterTab==='redes'"
-          :items="catalog"
+          :items="catalogFiltered"
         />
         <IaasInfraestruturaGerenciada
-          v-if="filterTab==='all' || filterTab==='infra'"
-          :items="catalog"
+          v-if="filterTab ==='all' || filterTab==='infra'"
+          :items="catalogFiltered"
         />
       </v-col>
     </v-row>
@@ -169,12 +169,12 @@ export default {
 };
 </script>
 <style scoped>
-#app .btn-back{
+#catalogo .btn-back{
   background-color: rgba(0, 0, 0, 0.43);
   color: #00ccf8;
 }
 
-#app h1.title {
+#catalogo h1.title {
   padding-bottom: 30px;
   font-family: 'Roboto Light', 'Roboto' !important;
   font-weight: 350;
@@ -184,7 +184,7 @@ export default {
   text-align: center;
 }
 
-#app .cont {
+#catalogo .cont {
   max-width: 1000px !important;
   margin: 0 auto;
 

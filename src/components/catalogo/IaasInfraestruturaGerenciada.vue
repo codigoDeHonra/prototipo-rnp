@@ -12,6 +12,7 @@
             :titulo="iaas_infraestrutura_gerenciada.titulo"
             :subtitulo="iaas_infraestrutura_gerenciada.subtitulo"
             :items="iaas_infraestrutura_gerenciada.items"
+            :link="ferramenta.node.Path"
             :img="ferramenta.node.Logo.src"
           ></PlanoComponent>
         </v-col>

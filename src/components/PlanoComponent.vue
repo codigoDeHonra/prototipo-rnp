@@ -5,6 +5,8 @@
     max-height="237"
     min-width="231"
     min-height="237"
+    :href="linkReal"
+    tag="a"
   >
     <div class="white--text align-end pt-4 ma-4">
       <v-img
@@ -53,9 +55,16 @@ export default {
     subtitulo: { type: String, default: '' },
     items: { type: [Object, Array] },
     status_plano: { type: Boolean, default: false },
+    link: { type: String, default: '' },
     img: { type: String, default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg' },
   },
-  data: () => ({})
+  data: () => ({
+  }),
+  computed:{
+    linkReal() {
+      return `${process.env.VUE_APP_DOMAIN}${this.link}`
+    }
+  }
 };
 </script>
 <style scoped>

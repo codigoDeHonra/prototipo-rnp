@@ -13,6 +13,7 @@
             :subtitulo="ferramenta.node.Body"
             :items="saas_redes_colaborativas.items"
             :img="ferramenta.node.Logo.src"
+            :link="ferramenta.node.Path"
           ></PlanoComponent>
         </v-col>
       </v-row>

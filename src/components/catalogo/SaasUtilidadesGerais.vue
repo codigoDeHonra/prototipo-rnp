@@ -23,6 +23,7 @@
             :items="plano.items"
             :status_plano="plano.status"
             :img="plano.node.Logo.src"
+            :link="plano.node.Path"
           ></PlanoComponent>
         </v-col>
       </v-row>
