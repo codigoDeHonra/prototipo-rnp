@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-col sm="12">
         <h1
-          class="font-weight-light align-center white--text text-center"
+          class="sub font-weight-light align-center white--text text-center"
         >IaaS - Infraestrutura gerenciada</h1>
       </v-col>
       <v-row style="width: 100%" no-gutters justify="center">
@@ -46,3 +46,12 @@ export default {
   props:[ 'items' ],
 };
 </script>
+<style scoped>
+ div#catalogo.v-application h1.sub {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin-block-start: .67em;
+  margin-block-end: .67em;
+}
+</style>

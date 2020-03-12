@@ -168,6 +168,19 @@ export default {
   }
 };
 </script>
+<style>
+#catalogo .v-card__title{
+  font-size: 20px;
+}
+#catalogo .v-card__subtitle {
+  font-size: 14px;
+  max-height: 66px;
+  overflow: hidden;
+}
+#catalogo .v-btn__content{
+  font-size: 14px;
+}
+</style>
 <style scoped>
 #catalogo .btn-back{
   background-color: rgba(0, 0, 0, 0.43);
@@ -189,4 +202,5 @@ export default {
   margin: 0 auto;
 
 }
+
 </style>

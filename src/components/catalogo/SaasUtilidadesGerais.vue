@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-col sm="12">
         <h1
-          class="font-weight-thin align-center blue-grey--text darken-2 text-center"
+          class="sub font-weight-thin align-center blue-grey--text darken-2 text-center"
         >SaaS - Utilidades Gerais</h1>
       </v-col>
       <v-row
@@ -60,3 +60,12 @@ export default {
   data: () => ({})
 };
 </script>
+<style scoped>
+ div#catalogo.v-application h1.sub {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin-block-start: .67em;
+  margin-block-end: .67em;
+}
+</style>
