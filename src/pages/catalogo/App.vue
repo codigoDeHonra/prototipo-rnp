@@ -29,10 +29,8 @@
       </v-btn>
     </v-app-bar-->
 
-    <v-content class="grey lighten-4">
-      <transition name="fade" mode="out-in">
+    <v-content class="">
         <router-view></router-view>
-      </transition>
     </v-content>
   </v-app>
 </template>
