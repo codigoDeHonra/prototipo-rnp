@@ -3,12 +3,16 @@
     <v-container fluid>
       <v-col sm="12">
         <h1
-          class="font-weight-thin align-center blue-grey--text darken-2 text-center"
+          class="sub font-weight-thin align-center blue-grey--text darken-2 text-center"
         >SaaS - Utilidades Gerais</h1>
       </v-col>
       <v-row
         v-if="items.length"
-        no-gutters align="center" justify="center">
+        no-gutters
+        align="center"
+        justify="center"
+        style="width: 100%"
+      >
         <v-col
           v-for="(plano, index) in items"
           :key="index"
@@ -19,6 +23,7 @@
             :items="plano.items"
             :status_plano="plano.status"
             :img="plano.node.Logo.src"
+            :link="plano.node.Path"
           ></PlanoComponent>
         </v-col>
       </v-row>
@@ -55,3 +60,12 @@ export default {
   data: () => ({})
 };
 </script>
+<style scoped>
+ div#catalogo.v-application h1.sub {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin-block-start: .67em;
+  margin-block-end: .67em;
+}
+</style>

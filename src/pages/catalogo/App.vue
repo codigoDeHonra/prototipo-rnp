@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="catalogo">
     <!--v-app-bar app color="primary" dark>
       <div class="d-flex align-center">
         <v-img
@@ -29,9 +29,9 @@
       </v-btn>
     </v-app-bar-->
 
-    <v-content class="">
+    <!--v-content class=""-->
         <router-view></router-view>
-    </v-content>
+    <!--/v-content-->
   </v-app>
 </template>
 

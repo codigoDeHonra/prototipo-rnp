@@ -3,16 +3,17 @@
     <v-container fluid>
       <v-col sm="12">
         <h1
-          class="font-weight-thin align-center blue-grey--text darken-2 text-center"
+          class="sub font-weight-thin align-center blue-grey--text darken-2 text-center"
         >SaaS - Redes Colaborativas</h1>
       </v-col>
-      <v-row no-gutters justify="center">
+      <v-row style="width: 100%" no-gutters justify="center">
         <v-col v-for="(ferramenta, index) in items" :key="index" cols="12" sm="3">
           <PlanoComponent
             :titulo="ferramenta.node.title"
             :subtitulo="ferramenta.node.Body"
             :items="saas_redes_colaborativas.items"
             :img="ferramenta.node.Logo.src"
+            :link="ferramenta.node.Path"
           ></PlanoComponent>
         </v-col>
       </v-row>
@@ -57,3 +58,12 @@ export default {
   props:[ 'items' ],
 };
 </script>
+<style scoped>
+ div#catalogo.v-application h1.sub {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin-block-start: .67em;
+  margin-block-end: .67em;
+}
+</style>

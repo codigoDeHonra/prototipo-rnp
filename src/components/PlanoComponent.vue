@@ -1,16 +1,24 @@
 <template>
-  <v-card class="mx-auto" max-width="231" max-height="237">
+  <v-card
+    class="mx-auto"
+    max-width="231"
+    max-height="237"
+    min-width="231"
+    min-height="237"
+    :href="linkReal"
+    tag="a"
+  >
     <div class="white--text align-end pt-4 ma-4">
       <v-img
         class="white--text align-end"
-        height="120px"
+        height="53px"
         :src="img"
       ></v-img>
     </div>
     <v-divider></v-divider>
 
     <v-card-title class="light-blue--text accent-4">{{ titulo }}</v-card-title>
-    <v-card-subtitle class="pb-0">{{ subtitulo }}</v-card-subtitle>
+    <v-card-subtitle class="text-card pb-0">{{ subtitulo }}</v-card-subtitle>
 
     <!--v-list dense>
       <v-list-item-group color="primary">
@@ -47,8 +55,21 @@ export default {
     subtitulo: { type: String, default: '' },
     items: { type: [Object, Array] },
     status_plano: { type: Boolean, default: false },
+    link: { type: String, default: '' },
     img: { type: String, default: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg' },
   },
-  data: () => ({})
+  data: () => ({
+  }),
+  computed:{
+    linkReal() {
+      return `${process.env.VUE_APP_DOMAIN}${this.link}`
+    }
+  }
 };
 </script>
+<style scoped>
+#catalogo .text-card {
+  overflow: hidden;
+  max-height: 44px;
+}
+</style>

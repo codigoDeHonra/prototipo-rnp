@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-4 pa-0" fluid>
+  <v-container style="width: 100%" class="grey lighten-4 pa-0" fluid>
     <v-row
         :style="back"
     >
@@ -18,62 +18,82 @@
             </v-row>
           </v-container>
 
-            <v-row class="btn-back">
-                <v-container class="cont pa-0">
-                    <v-col cols="12" class="d-flex " >
-                        <v-btn-toggle
-                                tile
-                                color="deep-purple accent-3"
-                                group
-                                class="mx-auto"
-                              >
-                               <v-btn text
-                                      color="white"
-                                   >
-                                  todos os serviços
-                               </v-btn>
-                               <v-btn
-                                  text
-                                  color="#00ccf8"
-                               >
-                                 utilidade gerais
-                               </v-btn>
-                               <v-btn
-                                   color="#00ccf8"
-                                   text>
-                                 ferraments cientificas
-                               </v-btn>
-                               <v-btn
-                                   color="#00ccf8"
-                                   text>
-                                 redes colaborativas
-                               </v-btn>
-                               <v-btn
-                                   color="#00ccf8"
-                                   text>
-                                 infraestrutura TI
-                               </v-btn>
-                        </v-btn-toggle>
-                    </v-col>
-                    <v-col cols="12" class="" >
-                        <v-text-field
-                          solo
-                          full-width
-                          single-line
-                          placeholder="Pesquisar todos os serviços nas nuvens"
-                          prepend-inner-icon="mdi-magnify"
-                        />
-                    </v-col>
-                </v-container>
-            </v-row>
+          <v-row class="btn-back">
+            <v-container class="cont pa-0">
+              <v-col cols="12" class="d-flex " >
+                <v-btn-toggle
+                  v-model="filterTab"
+                  tile
+                  color="deep-purple accent-3"
+                  group
+                  class="mx-auto"
+                  >
+                  <v-btn
+                    text
+                    value="all"
+                    color="#00ccf8"
+                    >
+                    todos os serviços
+                  </v-btn>
+                  <v-btn
+                    value="gerais"
+                    text
+                    color="#00ccf8"
+                    >
+                    utilidade gerais
+                  </v-btn>
+                  <v-btn
+                    value="tools"
+                    color="#00ccf8"
+                    text>
+                    ferraments cientificas
+                  </v-btn>
+                  <v-btn
+                    value="redes"
+                    color="#00ccf8"
+                    text>
+                    redes colaborativas
+                  </v-btn>
+                  <v-btn
+                    value="infra"
+                    color="#00ccf8"
+                    text>
+                    infraestrutura TI
+                  </v-btn>
+                </v-btn-toggle>
+              </v-col>
+              <v-col cols="12" class="" >
+                <v-text-field
+                  solo
+                  full-width
+                  single-line
+                  placeholder="Pesquisar todos os serviços nas nuvens"
+                  prepend-inner-icon="mdi-magnify"
+                  @input="search"
+                />
+              </v-col>
+            </v-container>
+          </v-row>
       </v-col>
     </v-row>
     <v-row>
       <v-col class="cont">
-        <SaasUtilidadesGerais :items="catalog"></SaasUtilidadesGerais>
-        <SaasFerramentasCientificas :items="catalog"></SaasFerramentasCientificas>
-        <SaasRedesColaborativas :items="catalog"></SaasRedesColaborativas>
-        <IaasInfraestruturaGerenciada :items="catalog"></IaasInfraestruturaGerenciada>
+        <SaasUtilidadesGerais
+          v-if="filterTab==='all' || filterTab==='gerais'"
+          :items="catalogFiltered"
+        />
+        <SaasFerramentasCientificas
+          v-if="filterTab==='all' || filterTab==='tools'"
+          :items="catalogFiltered"
+        />
+        <SaasRedesColaborativas
+          v-if="filterTab==='all' || filterTab==='redes'"
+          :items="catalogFiltered"
+        />
+        <IaasInfraestruturaGerenciada
+          v-if="filterTab ==='all' || filterTab==='infra'"
+          :items="catalogFiltered"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -89,7 +109,10 @@ export default {
   name: "CatalogoHome",
     data(){
         return {
-          catalog: '',
+          catalog: [],
+          catalogAll: true,
+          filterTab: 'all',
+          catalogFiltered: [],
             /*back:{
                 backgroundImage: 'url(' + require(`${process.env.VUE_APP_IMAGE_PATH}background_catalog.jpg`) + ')',
                 backgroundPosition: 'center center',
@@ -114,20 +137,57 @@ export default {
     SaasRedesColaborativas: SaasRedesColaborativas,
     IaasInfraestruturaGerenciada: IaasInfraestruturaGerenciada
   },
-  mounted(){
+  mounted() {
+      this.axios.get('https://pocresellergw.nasnuvens.rnp.br/cms/en/t2')
+      .then( r => {
+        this.catalog = r.data.nodes
+        this.catalogFiltered = r.data.nodes
+      }
+      )
+  },
+  methods:{
+    search(val) {
+      const vm = this
+      this.catalogFiltered = []
+      if (val) {
+        this.catalog.forEach(function (item) {
 
-      this.axios.get('https://pocresellergw.nasnuvens.rnp.br/cms/en/t2').then( r => this.catalog = r.data.nodes  )
+            if(JSON.stringify(item)
+              .toLowerCase()
+              .includes(val.toLowerCase()) ) {
 
+              vm.catalogFiltered.push(item)
+
+            }
+        })
+      } else {
+        vm.catalogFiltered = vm.catalog
+      }
+
+    }
   }
 };
 </script>
+<style>
+#catalogo .v-card__title{
+  font-size: 20px;
+}
+#catalogo .v-card__subtitle {
+  font-size: 14px;
+  max-height: 66px;
+  overflow: hidden;
+}
+#catalogo .v-btn__content{
+  font-size: 14px;
+}
+</style>
 <style scoped>
-#app .btn-back{
+#catalogo .btn-back{
   background-color: rgba(0, 0, 0, 0.43);
   color: #00ccf8;
 }
 
-#app h1.title {
+#catalogo h1.title {
   padding-bottom: 30px;
   font-family: 'Roboto Light', 'Roboto' !important;
   font-weight: 350;
@@ -137,9 +197,10 @@ export default {
   text-align: center;
 }
 
-#app .cont {
+#catalogo .cont {
   max-width: 1000px !important;
   margin: 0 auto;
 
 }
+
 </style>
