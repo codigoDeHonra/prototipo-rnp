@@ -70,6 +70,7 @@
                   placeholder="Pesquisar todos os serviços nas nuvens"
                   prepend-inner-icon="mdi-magnify"
                   @input="search"
+                  v-model="searchCatalog"
                 />
               </v-col>
             </v-container>
@@ -80,11 +81,11 @@
       <v-col class="cont">
         <SaasUtilidadesGerais
           v-if="filterTab==='all' || filterTab==='gerais'"
-          :items="catalogFiltered"
+          :items="utilidadeGeraisFiltered"
         />
         <SaasFerramentasCientificas
           v-if="filterTab==='all' || filterTab==='tools'"
-          :items="catalogFiltered"
+          :items="ferramentasCientificasFiltered"
         />
         <SaasRedesColaborativas
           v-if="filterTab==='all' || filterTab==='redes'"
@@ -92,7 +93,7 @@
         />
         <IaasInfraestruturaGerenciada
           v-if="filterTab ==='all' || filterTab==='infra'"
-          :items="catalogFiltered"
+          :items="infraestruturaGerenciadaFiltered"
         />
       </v-col>
     </v-row>
@@ -107,12 +108,17 @@ import IaasInfraestruturaGerenciada from "../../components/catalogo/IaasInfraest
 
 export default {
   name: "CatalogoHome",
-    data(){
+  data(){
         return {
+          searchCatalog: '',
           catalog: [],
+          catalogFiltered: [],
+          utilidadeGeraisDefault: [],
+          redesColaborativasDefault: [],
+          ferramentasCientificasDefault:[],
+          infraestruturaGerenciadaDefault:[],
           catalogAll: true,
           filterTab: 'all',
-          catalogFiltered: [],
             /*back:{
                 backgroundImage: 'url(' + require(`${process.env.VUE_APP_IMAGE_PATH}background_catalog.jpg`) + ')',
                 backgroundPosition: 'center center',
@@ -130,7 +136,21 @@ export default {
             //logo: require(`${process.env.VUE_APP_IMAGE_PATH}logo_white_nasnuvens.png`),
             logo: `${process.env.VUE_APP_IMAGE_PATH}/img/logo_white_nasnuvens.png`,
         }
+  },
+  computed: {
+    utilidadeGeraisFiltered(){
+      return this.filter(this.searchCatalog, this.utilidadeGeraisDefault)
     },
+    redesColaborativasFiltered() {
+      return this.filter(this.searchCatalog, this.redesColaborativasDefault)
+    },
+    ferramentasCientificasFiltered() {
+      return this.filter(this.searchCatalog, this.ferramentasCientificasDefault)
+    },
+    infraestruturaGerenciadaFiltered() {
+      return this.filter(this.searchCatalog, this.infraestruturaGerenciadaDefault)
+    }
+  },
   components: {
     SaasUtilidadesGerais: SaasUtilidadesGerais,
     SaasFerramentasCientificas: SaasFerramentasCientificas,
@@ -144,6 +164,11 @@ export default {
         this.catalogFiltered = r.data.nodes
       }
       )
+
+    this.utilidadeGerais()
+    this.redesColaborativas()
+    this.ferramentasCientificas()
+    this.infraestruturaGerenciada()
   },
   methods:{
     search(val) {
@@ -157,13 +182,60 @@ export default {
               .includes(val.toLowerCase()) ) {
 
               vm.catalogFiltered.push(item)
-
             }
         })
       } else {
         vm.catalogFiltered = vm.catalog
       }
+    },
+    filter(val, catalog) {
+      let catalogFiltered = []
 
+      if (val) {
+        catalog.forEach(function (item) {
+
+            if(JSON.stringify(item)
+              .toLowerCase()
+              .includes(val.toLowerCase()) ) {
+
+              catalogFiltered.push(item)
+            }
+        })
+        return catalogFiltered
+      } else {
+        return catalog
+      }
+    },
+    utilidadeGerais() {
+      this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_UTILIDADES_GERAIS}`)
+        .then( r => {
+          this.utilidadeGeraisDefault = r.data.nodes
+        }
+        )
+    },
+    redesColaborativas() {
+      this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_REDES_COLABORATIVAS}`)
+        .then( r => {
+          this.catalog = r.data.nodes
+          this.catalogFiltered = r.data.nodes
+        }
+        )
+    },
+    ferramentasCientificas() {
+      this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_FERRAMENTAS_CIENTIFICAS}`)
+        .then( r => {
+          this.catalog = r.data.nodes
+          this.catalogFiltered = r.data.nodes
+        }
+        )
+    },
+    infraestruturaGerenciada() {
+      this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_INFRAESTRUTURA_GERENCIADA}`)
+        .then( r => {
+          this.catalog = r.data.nodes
+          this.catalogFiltered = r.data.nodes
+        }
+        )
     }
   }
 };
