@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto card-highlight"
     max-width="231"
     max-height="237"
     min-width="231"
@@ -8,7 +8,7 @@
     :href="linkReal"
     tag="a"
   >
-    <div class="white--text align-end pt-4 ma-4">
+    <div class="white--text align-end ma-4">
       <v-img
         class="white--text align-end"
         height="53px"
@@ -71,5 +71,16 @@ export default {
 #catalogo .text-card {
   overflow: hidden;
   max-height: 44px;
+}
+
+#catalogo .card-highlight {
+  text-decoration: none;
+  border: 2px solid white;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+#catalogo .card-highlight:hover {
+ border: 2px solid #1aa9f4;
 }
 </style>

@@ -27,25 +27,27 @@
                   color="deep-purple accent-3"
                   group
                   class="mx-auto"
-                  >
+                  active-class="btn-active"
+                >
                   <v-btn
                     text
                     value="all"
                     color="#00ccf8"
-                    >
+                  >
                     todos os serviços
                   </v-btn>
                   <v-btn
                     value="gerais"
                     text
                     color="#00ccf8"
-                    >
+                  >
                     utilidade gerais
                   </v-btn>
                   <v-btn
                     value="tools"
                     color="#00ccf8"
-                    text>
+                    text
+                  >
                     ferraments cientificas
                   </v-btn>
                   <v-btn
@@ -272,7 +274,10 @@ export default {
 #catalogo .cont {
   max-width: 1000px !important;
   margin: 0 auto;
+}
 
+#catalogo .btn-active {
+  color: white !important;
 }
 
 </style>
