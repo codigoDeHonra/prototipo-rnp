@@ -23,7 +23,7 @@
             :items="plano.items"
             :status_plano="plano.status"
             :img="plano.node.Logo.src"
-            :link="plano.node.Path"
+            :link="linkAdjust(plano.node.Path)"
           ></PlanoComponent>
         </v-col>
       </v-row>
@@ -57,7 +57,13 @@ export default {
       return this.$store.state.catalogo.saas_utilidades_gerais;
     }
   },
-  data: () => ({})
+  data: () => ({}),
+  methods:{
+    linkAdjust(link){
+      //console.log(link)
+      return link.replace('/cms/en','/cms')
+    }
+  }
 };
 </script>
 <style scoped>

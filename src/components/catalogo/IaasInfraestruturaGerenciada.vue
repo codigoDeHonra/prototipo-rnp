@@ -12,7 +12,7 @@
             :titulo="iaas_infraestrutura_gerenciada.titulo"
             :subtitulo="iaas_infraestrutura_gerenciada.subtitulo"
             :items="iaas_infraestrutura_gerenciada.items"
-            :link="ferramenta.node.Path"
+            :link="linkAdjust(ferramenta.node.Path)"
             :img="ferramenta.node.Logo.src"
           ></PlanoComponent>
         </v-col>
@@ -44,6 +44,12 @@ export default {
     }
   }),
   props:[ 'items' ],
+  methods:{
+    linkAdjust(link){
+      //console.log(link)
+      return link.replace('/cms/en','/cms')
+    }
+  }
 };
 </script>
 <style scoped>

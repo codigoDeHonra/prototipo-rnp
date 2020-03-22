@@ -17,7 +17,7 @@
             :subtitulo="ferramenta.node.Body"
             :items="saas_ferramenta.items"
             :img="ferramenta.node.Logo.src"
-            :link="ferramenta.node.Path"
+            :link="linkAdjust(ferramenta.node.Path)"
           ></PlanoComponent>
         </v-col>
       </v-row>
@@ -71,6 +71,12 @@ export default {
     }
   }),
   props:[ 'items' ],
+  methods:{
+    linkAdjust(link){
+      //console.log(link)
+      return link.replace('/cms/en','/cms')
+    }
+  }
 };
 </script>
 <style scoped>
