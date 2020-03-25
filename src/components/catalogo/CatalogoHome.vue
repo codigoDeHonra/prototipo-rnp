@@ -218,24 +218,21 @@ export default {
     redesColaborativas() {
       this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_REDES_COLABORATIVAS}`)
         .then( r => {
-          this.catalog = r.data.nodes
-          this.catalogFiltered = r.data.nodes
+          this.redesColaborativasDefault = r.data.nodes
         }
         )
     },
     ferramentasCientificas() {
       this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_FERRAMENTAS_CIENTIFICAS}`)
         .then( r => {
-          this.catalog = r.data.nodes
-          this.catalogFiltered = r.data.nodes
+          this.ferramentasCientificasDefault = r.data.nodes
         }
         )
     },
     infraestruturaGerenciada() {
       this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_INFRAESTRUTURA_GERENCIADA}`)
         .then( r => {
-          this.catalog = r.data.nodes
-          this.catalogFiltered = r.data.nodes
+          this.infraestruturaGerenciadaDefault = r.data.nodes
         }
         )
     }

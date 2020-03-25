@@ -11,7 +11,8 @@
           v-for="(ferramenta, index) in items"
           :key="index"
           cols="12"
-          sm="3">
+          sm="3"
+        >
           <PlanoComponent
             :titulo="ferramenta.node.title"
             :subtitulo="ferramenta.node.Body"
@@ -48,26 +49,6 @@ export default {
     saas_ferramenta: {
       titulo: "MATLAB",
       subtitulo: "Cras justo odio, dapibus ac facilisis in, egestas eget ...",
-      items: [
-        {
-          text: "serviço online",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "",
-          style: { color: "green" }
-        },
-        {
-          text: "assinatura ativa",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "Gerenciar assinatura",
-          style: { color: "green" }
-        },
-        {
-          text: "solicitações abertas",
-          icon: "1",
-          subtext: "solicitações de acesso",
-          style: { color: "green" }
-        }
-      ]
     }
   }),
   props:[ 'items' ],
