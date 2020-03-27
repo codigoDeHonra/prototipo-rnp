@@ -32,23 +32,23 @@
                   <v-btn
                     text
                     value="all"
-                    color="#00ccf8"
+                    color="rgb(0, 204, 255)"
                   >
-                    todos os serviços
+                    Todos os Serviços
                   </v-btn>
                   <v-btn
                     value="gerais"
                     text
                     color="#00ccf8"
                   >
-                    utilidade gerais
+                    Utilidade Gerais
                   </v-btn>
                   <v-btn
                     value="tools"
                     color="#00ccf8"
                     text
                   >
-                    ferraments cientificas
+                    Ferraments Cientificas
                   </v-btn>
                   <v-btn
                     value="redes"
@@ -60,11 +60,11 @@
                     value="infra"
                     color="#00ccf8"
                     text>
-                    infraestrutura TI
+                    Infraestrutura TI
                   </v-btn>
                 </v-btn-toggle>
               </v-col>
-              <v-col cols="12" class="" >
+              <v-col cols="12" class="px-4 search-box" >
                 <v-text-field
                   solo
                   full-width
@@ -79,26 +79,44 @@
           </v-row>
       </v-col>
     </v-row>
+
     <v-row>
       <v-col class="cont">
         <SaasUtilidadesGerais
           v-if="filterTab==='all' || filterTab==='gerais'"
           :items="utilidadeGeraisFiltered"
         />
+
+      </v-col>
+    </v-row>
+
+    <v-row class="grey lighten-2">
+      <v-col class="cont">
         <SaasFerramentasCientificas
           v-if="filterTab==='all' || filterTab==='tools'"
           :items="ferramentasCientificasFiltered"
         />
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col class="cont">
         <SaasRedesColaborativas
           v-if="filterTab==='all' || filterTab==='redes'"
           :items="catalogFiltered"
         />
+      </v-col>
+    </v-row>
+
+    <v-row class="blue darken-2">
+      <v-col class="cont">
         <IaasInfraestruturaGerenciada
           v-if="filterTab ==='all' || filterTab==='infra'"
           :items="infraestruturaGerenciadaFiltered"
         />
       </v-col>
     </v-row>
+
   </v-container>
 </template>
 
@@ -249,13 +267,27 @@ export default {
   overflow: hidden;
 }
 #catalogo .v-btn__content{
-  font-size: 14px;
+  font-family: "Roboto Thin", "Roboto";
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+	color: #00CCFF;
+	text-align: center;
+  text-transform: initial;
+  font-variant: normal;
+  letter-spacing: 1.25px;
+  line-height: normal;
+  text-indent: 1.25px;
 }
+
 </style>
 <style scoped>
 #catalogo .btn-back{
   background-color: rgba(0, 0, 0, 0.43);
   color: #00ccf8;
+}
+#catalogo .search-box {
+  max-height: 88px;
 }
 
 #catalogo h1.title {
@@ -269,8 +301,9 @@ export default {
 }
 
 #catalogo .cont {
-  max-width: 1000px !important;
+  max-width: 1020px !important;
   margin: 0 auto;
+  padding: 0px;
 }
 
 #catalogo .btn-active {

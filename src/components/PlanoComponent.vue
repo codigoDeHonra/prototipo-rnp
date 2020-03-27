@@ -76,7 +76,7 @@ export default {
 #catalogo .card-highlight {
   text-decoration: none;
   border: 2px solid white;
-  margin-bottom: 5px;
+  margin-bottom: 50px;
   text-align: left;
 }
 
