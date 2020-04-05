@@ -80,10 +80,6 @@ export default {
 .icone-plano {
   font-size: 20px !important;
 }
-.card-plano {
-  min-height: 360px;
-  /* height: 430px; */
-}
 .items-plano {
   margin-top: -10px;
   height: 50px;

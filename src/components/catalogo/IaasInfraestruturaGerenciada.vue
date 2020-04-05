@@ -7,12 +7,16 @@
         >IaaS - Infraestrutura gerenciada</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col v-for="ferramenta in 4" :key="ferramenta" cols="12" sm="3">
-          <PlanoComponent
-            :titulo="iaas_infraestrutura_gerenciada.titulo"
-            :subtitulo="iaas_infraestrutura_gerenciada.subtitulo"
-            :items="iaas_infraestrutura_gerenciada.items"
-          ></PlanoComponent>
+        <v-col cols="9">
+          <v-row justify="center">
+            <v-col v-for="ferramenta in 4" :key="ferramenta" cols="12" sm="3">
+              <PlanoComponent
+                :titulo="iaas_infraestrutura_gerenciada.titulo"
+                :subtitulo="iaas_infraestrutura_gerenciada.subtitulo"
+                :items="iaas_infraestrutura_gerenciada.items"
+              ></PlanoComponent>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -43,3 +47,8 @@ export default {
   })
 };
 </script>
+<style scoped>
+.v-card {
+  height: 350px !important;
+}
+</style>

@@ -26,9 +26,9 @@
       <v-stepper-header>
         <v-divider></v-divider>
 
-        <v-stepper-step step="2" class="servicos-nao-assinados">
-          serviços não assinados
-          <small class="blue--text">Exibir serviços</small>
+        <v-stepper-step step="2" class="title">
+          <span class="font-weight-thin ml-0"> serviços não assinados</span>
+          <small class="blue--text ml-11 mt-1">Exibir serviços</small>
         </v-stepper-step>
         <v-divider></v-divider>
       </v-stepper-header>
