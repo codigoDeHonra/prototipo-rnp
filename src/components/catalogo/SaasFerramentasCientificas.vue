@@ -9,11 +9,12 @@
       <v-row no-gutters justify="center">
         <v-col cols="9">
           <v-row justify="center">
-            <v-col v-for="ferramenta in 3" :key="ferramenta" cols="3" align-self="center">
+            <v-col v-for="(ferramenta, key) in 3" :key="key" cols="3" align-self="center">
               <PlanoComponent
-                :titulo="saas_ferramenta.titulo"
-                :subtitulo="saas_ferramenta.subtitulo"
-                :items="saas_ferramenta.items"
+                :titulo="saas_ferramentas_cientificas.titulo"
+                :subtitulo="saas_ferramentas_cientificas.subtitulo"
+                :items="saas_ferramentas_cientificas.items"
+                :btn_acao="saas_ferramentas_cientificas.action"
               ></PlanoComponent>
             </v-col>
           </v-row>
@@ -21,7 +22,7 @@
       </v-row>
     </v-container>
 
-    <v-stepper non-linear class="transparent">
+    <v-stepper non-linear class="transparent elevation-0">
       <v-stepper-header>
         <v-divider></v-divider>
         <v-stepper-step step="18" class="title">
@@ -43,30 +44,11 @@ export default {
     PlanoComponent: PlanoComponent
   },
   data: () => ({
-    saas_ferramenta: {
-      titulo: "MATLAB",
-      subtitulo: "Cras justo odio, dapibus ac facilisis in, egestas eget ...",
-      items: [
-        {
-          text: "serviço online",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "",
-          style: { color: "green" }
-        },
-        {
-          text: "assinatura ativa",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "Gerenciar assinatura",
-          style: { color: "green" }
-        },
-        {
-          text: "solicitações abertas",
-          icon: "1",
-          subtext: "solicitações de acesso",
-          style: { color: "green" }
-        }
-      ]
+  }),
+  computed: {
+    saas_ferramentas_cientificas() {
+      return this.$store.state.catalogo.saas_ferramentas_cientificas[0];
     }
-  })
+  }
 };
 </script>
