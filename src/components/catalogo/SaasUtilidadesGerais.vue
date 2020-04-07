@@ -7,24 +7,29 @@
         >SaaS - Utilidades Gerais</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col v-for="plano in saas_utilidades_gerais" :key="plano" cols="3">
-          <PlanoComponent
-            :titulo="plano.titulo"
-            :subtitulo="plano.subtitulo"
-            :items="plano.items"
-            :status_plano="plano.status"
-          ></PlanoComponent>
+        <v-col cols="9">
+          <v-row justify="center">
+            <v-col v-for="(plano, key) in saas_utilidades_gerais" :key="key" cols="3" align-self="center">
+              <PlanoComponent
+                :titulo="plano.titulo"
+                :subtitulo="plano.subtitulo"
+                :items="plano.items"
+                :status_plano="plano.btn_status"
+                :btn_acao="plano.action"
+              ></PlanoComponent>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
 
-    <v-stepper non-linear class="transparent">
+    <v-stepper non-linear class="transparent elevation-0">
       <v-stepper-header>
         <v-divider></v-divider>
 
-        <v-stepper-step step="2">
-          serviços não assinados
-          <small class="blue--text">Exibir serviços</small>
+        <v-stepper-step step="2" class="title">
+          <span class="font-weight-thin ml-0"> serviços não assinados</span>
+          <small class="blue--text ml-11 mt-1">Exibir serviços</small>
         </v-stepper-step>
         <v-divider></v-divider>
       </v-stepper-header>

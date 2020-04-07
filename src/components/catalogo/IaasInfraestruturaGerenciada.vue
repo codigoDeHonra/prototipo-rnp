@@ -7,12 +7,19 @@
         >IaaS - Infraestrutura gerenciada</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col v-for="ferramenta in 4" :key="ferramenta" cols="12" sm="3">
-          <PlanoComponent
-            :titulo="iaas_infraestrutura_gerenciada.titulo"
-            :subtitulo="iaas_infraestrutura_gerenciada.subtitulo"
-            :items="iaas_infraestrutura_gerenciada.items"
-          ></PlanoComponent>
+        <v-col cols="9">
+          <v-row justify="center">
+            <v-col v-for="(ferramenta, key) in iaas_infraestrutura_gerenciada" :key="key" cols="3" align-self="center">
+              <PlanoComponent
+                :titulo="ferramenta.titulo"
+                :subtitulo="ferramenta.subtitulo"
+                :items="ferramenta.items"
+                :status_plano="ferramenta.btn_status"
+                :status_card="ferramenta.status_card"
+                :btn_acao="ferramenta.action"
+              ></PlanoComponent>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -28,18 +35,16 @@ export default {
     PlanoComponent: PlanoComponent
   },
   data: () => ({
-    iaas_infraestrutura_gerenciada: {
-      titulo: "Amazon AWS",
-      subtitulo: "Maecenas sed diam eget risus varius blandit sit...",
-      items: [
-        {
-          text: "pilhas criadas",
-          icon: "4",
-          subtext: "Visão geral - Gerenciar",
-          style: { color: "green" }
-        }
-      ]
+  }),
+  computed: {
+    iaas_infraestrutura_gerenciada() {
+      return this.$store.state.catalogo.iaas_infraestrutura_gerenciada;
     }
-  })
+  },
 };
 </script>
+<style scoped>
+.card-plano {
+  height: 350px !important;
+}
+</style>

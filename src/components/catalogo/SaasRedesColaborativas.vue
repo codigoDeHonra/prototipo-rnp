@@ -7,12 +7,17 @@
         >SaaS - Redes Colaborativas</h1>
       </v-col>
       <v-row no-gutters justify="center">
-        <v-col v-for="ferramenta in 8" :key="ferramenta" cols="12" sm="3">
-          <PlanoComponent
-            :titulo="saas_redes_colaborativas.titulo"
-            :subtitulo="saas_redes_colaborativas.subtitulo"
-            :items="saas_redes_colaborativas.items"
-          ></PlanoComponent>
+        <v-col cols="9">
+          <v-row justify="center">
+            <v-col v-for="ferramenta in 8" :key="ferramenta" cols="3" align-self="center">
+              <PlanoComponent
+                :titulo="saas_redes_colaborativas.titulo"
+                :subtitulo="saas_redes_colaborativas.subtitulo"
+                :items="saas_redes_colaborativas.items"
+                :btn_acao="saas_redes_colaborativas.action"
+              ></PlanoComponent>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -28,30 +33,11 @@ export default {
     PlanoComponent: PlanoComponent
   },
   data: () => ({
-    saas_redes_colaborativas: {
-      titulo: "ORCID",
-      subtitulo: "Praesent commodo cursus magna, vel scelerisque",
-      items: [
-        {
-          text: "serviço online",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "",
-          style: { color: "green" }
-        },
-        {
-          text: "gratuito para CAPES",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "Gerenciar assinatura",
-          style: { color: "green" }
-        },
-        {
-          text: "acesos ilimitados",
-          icon: "mdi-checkbox-marked-circle",
-          subtext: "solicitações de acesso",
-          style: { color: "green" }
-        }
-      ]
+  }),
+  computed: {
+    saas_redes_colaborativas() {
+      return this.$store.state.catalogo.saas_redes_colaborativas[0];
     }
-  })
+  }
 };
 </script>

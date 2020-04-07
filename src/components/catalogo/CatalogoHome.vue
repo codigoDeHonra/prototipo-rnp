@@ -28,3 +28,15 @@ export default {
   data: () => ({})
 };
 </script>
+<style>
+.v-stepper__step__step {
+  background: transparent !important;
+  color: #6f6f6f !important;
+  font-size: 18px !important;
+  margin-bottom: 14px !important;
+  margin-right: 0px !important;
+}
+.v-divider {
+  margin-top: -14px !important;
+}
+</style>
