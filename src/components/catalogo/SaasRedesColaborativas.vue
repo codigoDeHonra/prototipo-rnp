@@ -9,7 +9,7 @@
       <v-row no-gutters justify="center">
         <v-col cols="9">
           <v-row justify="center">
-            <v-col v-for="ferramenta in 8" :key="ferramenta" cols="12" sm="3">
+            <v-col v-for="ferramenta in 8" :key="ferramenta" cols="3" align-self="center">
               <PlanoComponent
                 :titulo="saas_redes_colaborativas.titulo"
                 :subtitulo="saas_redes_colaborativas.subtitulo"

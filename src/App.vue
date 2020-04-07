@@ -44,3 +44,9 @@ export default {
   data: () => ({})
 };
 </script>
+<style>
+#app {
+  width: 100%;
+  min-width: 900px;
+}
+</style>

@@ -9,7 +9,7 @@
       <v-row no-gutters justify="center">
         <v-col cols="9">
           <v-row justify="center">
-            <v-col v-for="(ferramenta, key) in iaas_infraestrutura_gerenciada" :key="key" cols="3">
+            <v-col v-for="(ferramenta, key) in iaas_infraestrutura_gerenciada" :key="key" cols="3" align-self="center">
               <PlanoComponent
                 :titulo="ferramenta.titulo"
                 :subtitulo="ferramenta.subtitulo"
