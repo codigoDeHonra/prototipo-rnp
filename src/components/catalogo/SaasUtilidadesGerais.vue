@@ -1,6 +1,6 @@
 <template>
-  <div class="grey lighten-4">
-    <v-container fluid>
+  <div class="pa-0 ">
+    <v-container fluid class="pa-0">
       <v-col sm="12">
         <h1
           class="sub font-weight-thin align-center blue-grey--text darken-2 text-center"
@@ -16,7 +16,12 @@
         <v-col
           v-for="(plano, index) in items"
           :key="index"
-          cols="3">
+          cols="12"
+          lg="3"
+          md="3"
+          sm="3"
+          class=""
+          >
           <PlanoComponent
             :titulo="plano.node.title"
             :subtitulo="plano.node.Body"
@@ -24,6 +29,7 @@
             :status_plano="plano.status"
             :img="plano.node.Logo.src"
             :link="linkAdjust(plano.node.Path)"
+            class="mx-auto"
           ></PlanoComponent>
         </v-col>
       </v-row>

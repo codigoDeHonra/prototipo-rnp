@@ -1,5 +1,5 @@
 <template>
-  <div class="grey lighten-4">
+  <div class="">
     <v-container fluid>
       <v-col sm="12">
         <h1
@@ -7,13 +7,17 @@
         >SaaS - Redes Colaborativas</h1>
       </v-col>
       <v-row style="width: 100%" no-gutters justify="center">
-        <v-col v-for="(ferramenta, index) in items" :key="index" cols="12" sm="3">
+        <v-col v-for="(ferramenta, index) in items" :key="index"
+          cols="12"
+          sm="3"
+        >
           <PlanoComponent
             :titulo="ferramenta.node.title"
             :subtitulo="ferramenta.node.Body"
             :items="saas_redes_colaborativas.items"
             :img="ferramenta.node.Logo.src"
             :link="linkAdjust(ferramenta.node.Path)"
+            class="mx-auto"
           ></PlanoComponent>
         </v-col>
       </v-row>

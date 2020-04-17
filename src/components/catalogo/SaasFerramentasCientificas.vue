@@ -19,6 +19,7 @@
             :items="saas_ferramenta.items"
             :img="ferramenta.node.Logo.src"
             :link="linkAdjust(ferramenta.node.Path)"
+            class="mx-auto"
           ></PlanoComponent>
         </v-col>
       </v-row>

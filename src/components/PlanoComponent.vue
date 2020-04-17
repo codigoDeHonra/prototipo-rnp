@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto card-highlight"
+    class=" card-highlight"
     max-width="231"
     max-height="237"
     min-width="231"
@@ -8,42 +8,33 @@
     :href="linkReal"
     tag="a"
   >
-    <div class="white--text align-end ma-4">
+    <div class="white--text align-end ma-0 pa-1 pt-2"
+       style="height:120px"
+      >
       <v-img
-        class="white--text align-end"
-        height="53px"
+        class="pa-0 white--text align-end"
+        max-height="80px"
+        contain
         :src="img"
       ></v-img>
     </div>
-    <v-divider></v-divider>
-
-    <v-card-title class="light-blue--text accent-4">{{ titulo }}</v-card-title>
-    <v-card-subtitle class="text-card pb-0">{{ subtitulo }}</v-card-subtitle>
-
-    <!--v-list dense>
-      <v-list-item-group color="primary">
-        <v-list-item v-for="(item, i) in items" :key="i">
-          <v-list-item-icon>
-            <v-icon v-text="item.icon" color="success"></v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title
-              v-bind:style="item.style"
-              v-text="item.text"
-              class="font-weight-light"
-            ></v-list-item-title>
-            <div class="font-weight-bold caption ml-1 light-blue--text accent-4">{{ item.subtext }}</div>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list-->
-
-    <!--v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn v-if="status_plano" color="white" class="text-uppercase green" text>acessar serviço</v-btn>
-      <v-btn v-else color="white" class="text-uppercase light-blue" text>Obter seu acesso</v-btn>
-      <v-spacer></v-spacer>
-    </v-card-actions-->
+    <v-divider class="ma-0"></v-divider>
+    <v-card-title
+      class="px-0 py-0 light-blue--text accent-4"
+      style="
+      height:55px;
+      line-height:1.3rem;
+      margin-right:20px;
+      margin-left:20px;
+      word-break:normal;
+      "
+    >
+      {{ titulo }}
+    </v-card-title>
+    <v-card-subtitle
+      class="text-card pa-0">
+      {{ subtitulo }}
+    </v-card-subtitle>
   </v-card>
 </template>
 
@@ -69,8 +60,17 @@ export default {
 </script>
 <style scoped>
 #catalogo .text-card {
+  /*display: block;*/
+  height:49px;
+/*  text-overflow: ellipsis ellipsis;*/
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+
   overflow: hidden;
-  max-height: 44px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 #catalogo .card-highlight {
