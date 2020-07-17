@@ -4,7 +4,7 @@
       <v-col sm="12">
         <h1
           class="sub font-weight-thin align-center blue-grey--text darken-2 text-center"
-        >SaaS - Ferramentas Científicas</h1>
+        >Identidade & Segurança</h1>
       </v-col>
       <v-row style="width: 100%" no-gutters justify="center">
         <v-col

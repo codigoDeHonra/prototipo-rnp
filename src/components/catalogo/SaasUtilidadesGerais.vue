@@ -4,7 +4,7 @@
       <v-col sm="12">
         <h1
           class="sub font-weight-thin align-center blue-grey--text darken-2 text-center"
-        >SaaS - Utilidades Gerais</h1>
+        >Aplicações para Ensino & Pesquisa</h1>
       </v-col>
       <v-row
         v-if="items.length"

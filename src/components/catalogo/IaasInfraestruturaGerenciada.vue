@@ -1,10 +1,10 @@
 <template>
-  <div class="blue darken-2">
+  <div style="background-color:#0063b4;min-height:368px" class="">
     <v-container fluid>
       <v-col sm="12">
-        <h1
-          class="sub font-weight-light align-center white--text text-center"
-        >IaaS - Infraestrutura gerenciada</h1>
+        <h1 class="sub font-weight-light align-center ma-0 white--text text-center">
+         Infraestrutura & Plataformas
+        </h1>
       </v-col>
       <v-row style="width: 100%" no-gutters justify="center">
         <v-col v-for="(ferramenta, index) in items" :key="index"
@@ -12,8 +12,8 @@
           sm="3"
         >
           <PlanoComponent
-            :titulo="iaas_infraestrutura_gerenciada.titulo"
-            :subtitulo="iaas_infraestrutura_gerenciada.subtitulo"
+            :titulo="ferramenta.node.title"
+            :subtitulo="ferramenta.node.Body"
             :items="iaas_infraestrutura_gerenciada.items"
             :link="linkAdjust(ferramenta.node.Path)"
             :img="ferramenta.node.Logo.src"

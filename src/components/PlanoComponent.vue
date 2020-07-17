@@ -8,15 +8,17 @@
     :href="linkReal"
     tag="a"
   >
-    <div class="white--text align-end ma-0 pa-1 pt-2"
+    <div class="white--text align-end ma-0 pa-1 pt-2 d-flex"
        style="height:120px"
-      >
+    >
       <v-img
-        class="pa-0 white--text align-end"
+        class="pa-0 white--text ma-auto align-end"
         max-height="80px"
+        max-width="152px"
         contain
+        aspect-ratio="1"
         :src="img"
-      ></v-img>
+      />
     </div>
     <v-divider class="ma-0"></v-divider>
     <v-card-title
@@ -61,7 +63,7 @@ export default {
 <style scoped>
 #catalogo .text-card {
   /*display: block;*/
-  height:49px;
+  height:44px;
 /*  text-overflow: ellipsis ellipsis;*/
   margin-top: 0px;
   margin-left: 20px;

@@ -1,11 +1,11 @@
 <template>
-  <v-container style="width: 100%; " class="grey lighten-4 pa-0" fluid>
+  <v-container style="width: 100%;" class="grey lighten-4 pa-0" fluid>
     <v-row
       :style="back"
       class="pa-0"
       style="height:314px"
     >
-      <v-col cols="12"  class="pa-0" >
+      <v-col cols="12"  class="pa-0"  style="height:314px">
           <v-container class="cont pa-0">
             <v-row
               style="height:185px"
@@ -25,12 +25,12 @@
           </v-container>
 
           <v-row
-            style="height:128px"
             class="btn-back"
           >
-            <v-container class="cont pa-0">
-              <v-col cols="12" class="pa-0 d-flex  " >
+            <v-container class="cont pa-0 " style="">
+              <v-col cols="12" class="pa-0 d-flex  " style="height:60px;margin-bottom:4px;">
                 <v-btn-toggle
+                  mandatory
                   v-model="filterTab"
                   tile
                   color="transparent"
@@ -48,23 +48,24 @@
                     value="gerais"
                     text
                   >
-                    Utilidades Gerais
+                   Aplicações para Ensino & Pesquisa
                   </v-btn>
                   <v-btn
                     value="tools"
                     text
                   >
-                    Ferramentas Científicas
+                   Identidade & Segurança
                   </v-btn>
-                  <v-btn
+                  <!--v-btn
                     value="redes"
                     text>
                     Redes Colaborativas
-                  </v-btn>
+                  </v-btn-->
                   <v-btn
                     value="infra"
-                    text>
-                    Infraestrutura de TI
+                    text
+                  >
+                    Infraestrutura & Plataformas
                   </v-btn>
                 </v-btn-toggle>
               </v-col>
@@ -103,38 +104,44 @@
       </v-col>
     </v-row>
 
-    <v-row class="grey lighten-4">
+    <!--v-row class="grey lighten-4">
       <v-col class="cont">
         <SaasRedesColaborativas
           v-if="filterTab==='all' || filterTab==='redes'"
-          :items="catalogFiltered"
+          :items="redesColaborativasFiltered"
         />
       </v-col>
-    </v-row>
+    </v-row-->
 
-    <v-row class="grey lighten-4 "
+    <v-row
+      v-if="bannerNodes.length > 0"
+           class="card-highlight grey lighten-4 mt-4"
            align="center"
-           style="margin-bottom:80px;"
+           style="margin-bottom:28px;"
       >
       <v-col class="cont">
         <v-card
           class=" card-highlight"
           tag="a"
+          style="text-decoration: none"
         >
           <div class="white--text align-end ma-0 pa-0" >
             <v-img
               class="pa-0 white--text align-end"
               height="185px"
               contain
-              :style="back"
+              :style="backBanner"
               style="border-radius: 4px 4px 0 0;"
             ></v-img>
           </div>
           <v-divider class="ma-0"></v-divider>
-          <v-row>
-            <v-col cols="9">
+          <v-row style="height:92px">
+            <v-col class="d-flex flex-column justify-center" cols="9">
+              <div
+                style="height:66px;"
+              >
               <v-card-title
-                class="px-0 py-0 light-blue--text accent-4"
+                class="pa-0 py-0 light-blue--text accent-4"
                 style="
                 line-height:1.3rem;
                 margin-right:20px;
@@ -142,17 +149,20 @@
                 word-break:normal;
                 "
               >
-                 titulo
+                 {{bannerNodes[0].node.title}}
               </v-card-title>
               <v-card-subtitle
-                class="text-card pa-0">
-                teste
+                class="text-card pa-0 text-left">
+                {{bannerNodes[0].node.Body}}
+
               </v-card-subtitle>
+              </div>
             </v-col>
-            <v-col cols="3" class="pr-2">
+            <v-col cols="3" class=" d-flex flex-column justify-center pa-0" style="height:92px">
               <v-btn
                 color="#009dd9"
-                width="176"
+                width="180"
+                height="45"
                 dark
                 class="white-btn mx-auto"
               >
@@ -165,7 +175,9 @@
       </v-col>
     </v-row>
 
-    <v-row class="blue darken-2">
+    <v-row
+      v-if="filterTab ==='all' || filterTab==='infra'"
+      class="" style="background-color:#0063b4; min-height:368px" >
       <v-col class="cont">
         <IaasInfraestruturaGerenciada
           v-if="filterTab ==='all' || filterTab==='infra'"
@@ -180,7 +192,7 @@
 <script>
 import SaasUtilidadesGerais from "../../components/catalogo/SaasUtilidadesGerais.vue";
 import SaasFerramentasCientificas from "../../components/catalogo/SaasFerramentasCientificas.vue";
-import SaasRedesColaborativas from "../../components/catalogo/SaasRedesColaborativas.vue";
+//import SaasRedesColaborativas from "../../components/catalogo/SaasRedesColaborativas.vue";
 import IaasInfraestruturaGerenciada from "../../components/catalogo/IaasInfraestruturaGerenciada.vue";
 
 export default {
@@ -194,24 +206,17 @@ export default {
           redesColaborativasDefault: [],
           ferramentasCientificasDefault:[],
           infraestruturaGerenciadaDefault:[],
+          bannerNodes:[],
           catalogAll: true,
           filterTab: 'all',
-            /*back:{
-                backgroundImage: 'url(' + require(`${process.env.VUE_APP_IMAGE_PATH}background_catalog.jpg`) + ')',
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'scroll',
-                backgroundSize: 'cover',
-            },*/
             back:{
-                backgroundImage: `url(${process.env.VUE_APP_IMAGE_PATH}/img/background_catalog.jpg)`,
+                backgroundImage: `url(${process.env.VUE_APP_IMAGE_PATH}/background_catalog.jpg)`,
                 backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 backgroundAttachment: 'scroll',
                 backgroundSize: 'cover',
             },
-            //logo: require(`${process.env.VUE_APP_IMAGE_PATH}logo_white_nasnuvens.png`),
-            logo: `${process.env.VUE_APP_IMAGE_PATH}/img/logo_white_nasnuvens.png`,
+            logo: `${process.env.VUE_APP_IMAGE_PATH}/logo_white_nasnuvens.png`,
         }
   },
   computed: {
@@ -226,26 +231,42 @@ export default {
     },
     infraestruturaGerenciadaFiltered() {
       return this.filter(this.searchCatalog, this.infraestruturaGerenciadaDefault)
+    },
+    backBanner(){
+      //console.log(this.bannerNodes.length)
+      if (this.bannerNodes.length > 0){
+        return {
+          backgroundImage: `url(${this.bannerNodes[0].node.image_banner.src})`,
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'scroll',
+          backgroundSize: 'cover',
+        }
+      }
+
+      return {}
     }
   },
   components: {
     SaasUtilidadesGerais: SaasUtilidadesGerais,
     SaasFerramentasCientificas: SaasFerramentasCientificas,
-    SaasRedesColaborativas: SaasRedesColaborativas,
+ //   SaasRedesColaborativas: SaasRedesColaborativas,
     IaasInfraestruturaGerenciada: IaasInfraestruturaGerenciada
   },
   mounted() {
-      this.axios.get('https://pocresellergw.nasnuvens.rnp.br/cms/en/t2')
+      /*this.axios.get('https://pocresellergw.nasnuvens.rnp.br/cms/en/t2')
       .then( r => {
         this.catalog = r.data.nodes
         this.catalogFiltered = r.data.nodes
       }
-      )
+      )*/
 
     this.utilidadeGerais()
     this.redesColaborativas()
     this.ferramentasCientificas()
     this.infraestruturaGerenciada()
+
+    this.banner()
   },
   methods:{
     search(val) {
@@ -308,6 +329,13 @@ export default {
       this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_INFRAESTRUTURA_GERENCIADA}`)
         .then( r => {
           this.infraestruturaGerenciadaDefault = r.data.nodes
+        }
+        )
+    },
+    banner() {
+      this.axios.get(`${process.env.VUE_APP_DOMAIN}${process.env.VUE_APP_BANNER}`)
+        .then( r => {
+          this.bannerNodes = r.data.nodes
         }
         )
     }
@@ -388,7 +416,9 @@ i.v-icon{
 
 
 #catalogo .btn-back{
-  background-color:rgba(0, 0, 0, 0.63921568627451);
+  background-color:rgba(0, 0, 0, 0.4);
+  /*margin-bottom:20px;*/
+  height: 128px;
 }
 #catalogo .search-box {
   max-height: 88px;
@@ -434,6 +464,15 @@ i.v-icon{
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+#catalogo .card-highlight {
+  text-decoration: none;
+  border: 2px solid white;
+  margin-bottom: 50px;
+  text-align: left;
+}
+#catalogo .card-highlight:hover {
+ border: 2px solid #1aa9f4;
 }
 </style>
 
